@@ -1,0 +1,6 @@
+config.json
+log.txt
+model.json
+printer-buddy-lite.npz
+*.pyc
+__pycache__/
