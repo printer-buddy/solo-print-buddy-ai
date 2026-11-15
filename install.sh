@@ -23,7 +23,7 @@ if [ ! -d "$DIR/.git" ]; then
   echo "Downloading to $DIR ..."
   TMP="$DIR.new"
   rm -rf "$TMP"
-  git clone -q "$REPO" "$TMP"
+  git clone -q -b main "$REPO" "$TMP"
   for f in config.json model.json printer-buddy-lite.npz log.txt; do
     if [ -f "$DIR/$f" ]; then mv "$DIR/$f" "$TMP/$f"; fi
   done
