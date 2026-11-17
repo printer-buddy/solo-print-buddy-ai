@@ -1,4 +1,15 @@
 #!/bin/sh
+#LICENSE
+#
+#Copyright (C) 2026  sterling motuz <Sterling@dexabyte.ca>
+#
+#for https://github.com/printer-buddy/printer-buddy
+#
+#SPDX-License-Identifier: AGPL-3.0-only
+#
+#Additional term (AGPL-3.0 section 7b, keep author credit): keep this header
+#
+#Additional term (AGPL-3.0 section 7c, mark changed versions): if you make any changes, you must include a CHANGELOG with all changes and their dates
 # Printer Buddy AI for a Klipper printer. Run on the printer:  sh install.sh
 # Installs into /usr/data/printer-buddy-ai (or ~/printer-buddy-ai, or $PB_AI_DIR) and starts at boot.
 set -e
@@ -23,7 +34,7 @@ if [ ! -d "$DIR/.git" ]; then
   echo "Downloading to $DIR ..."
   TMP="$DIR.new"
   rm -rf "$TMP"
-  git clone -q "$REPO" "$TMP"
+  git clone -q -b main "$REPO" "$TMP"
   for f in config.json model.json printer-buddy-lite.npz log.txt; do
     if [ -f "$DIR/$f" ]; then mv "$DIR/$f" "$TMP/$f"; fi
   done
