@@ -83,7 +83,7 @@ elif [ -d /etc/init.d ]; then
 #!/bin/sh
 case "\$1" in
   start) cd $DIR && nohup python3 pb_ai.py >> $DIR/log.txt 2>&1 & ;;
-  stop) pkill -f "$DIR/pb_ai.py" 2>/dev/null; pkill -f "python3 pb_ai.py" 2>/dev/null ;;
+  stop) pkill -f pb_ai.py 2>/dev/null ;;
   restart) \$0 stop; sleep 1; \$0 start ;;
 esac
 INIT
